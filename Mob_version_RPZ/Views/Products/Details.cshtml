@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Mob_version_RPZ.Product>
+
+@{
+    ViewData["Title"] = "Products";
+}
+<h1>Products</h1>
+
+<input type="button" value="Усі записи" onclick="location.href='@Url.Action("Index", "Products")'" />
+<input type="button" value="Кількість < 5" onclick="location.href='@Url.Action("Details", "Products")'" />
+<input type="button" value="Макс-мін ціна" onclick="location.href='@Url.Action("Max", "Products")'" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Count)
+            </th>
+            <th>
+                <a asp-action="Create">
+                    <img src="~/img/add.png" class="edit_delete" />
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Count)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">
+                        <img src="~/img/edit.png" class="edit_delete" />
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">
+                        <img src="~/img/delete.png" class="edit_delete" style="margin-left:5px" />
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
