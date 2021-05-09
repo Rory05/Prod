@@ -16,7 +16,7 @@ namespace Mob_version_RPZ
         [Display(Name = "Ціна")]
         public double? Price { get; set; }
         [Required(ErrorMessage = "Поле не повинно бути порожнім")]
-        [Display(Name = "Кількість")]
+        [Display(Name = "К-ть")]
         public int? Count { get; set; }
     }
 }
